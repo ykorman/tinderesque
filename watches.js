@@ -3,6 +3,7 @@
   var all = 0;
   var results = document.querySelector('#results');
   var counter = document.querySelector('#counter');
+  var email_body = "";
 
   function updatecounter() {
     --all;
@@ -11,6 +12,7 @@
 
   document.body.addEventListener('yepcard', function(ev) {
     results.innerHTML += '<li>'+ev.detail.card.innerHTML+'</li>';
+    email_body += ev.detail.card.firstElementChild.currentSrc + " ";
     updatecounter();
   });
 
@@ -20,6 +22,8 @@
 
   document.body.addEventListener('deckempty', function(ev) {
     results.innerHTML += '<li><button onclick="window.print();">Print results</button></li>';
+    results.innerHTML += '<li><a href="mailto:ykorman+annawatches@gmail.com?subject=AnnaWatches&amp;body=' +
+    			encodeURIComponent(email_body) + '">Send email</a>';
     results.classList.add('live');
     ev.detail.container.style.display = 'none';
   });
