@@ -22,7 +22,7 @@
   });
 
   document.body.addEventListener('deckempty', function(ev) {
-    results.innerHTML += '<li><a href="mailto:ykorman@gmail.com?subject=AnnaWatches&amp;body=' +
+    results.innerHTML += '<li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=ykorman@gmail.com&su=watches&body=' +
     			encodeURIComponent(email_body) + '">Send Yigal an email with the results!!!</a>';
     results.classList.add('live');
     ev.detail.container.style.display = 'none';
